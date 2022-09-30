@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+    Employee Management
+
+    <% if (message == 'successDel') { %>
+      <div class="alert alert-success">
+        <strong>Success! </strong>Delete success!
+      </div>
+    <% } else if (message == 'successUpdate') { %>
+      <div class="alert alert-success">
+        <strong>Success! </strong>Update success!
+      </div>
+      <% } else if (message == 'successCreate') { %>
+        <div class="alert alert-success">
+          <strong>Success! </strong>Update success!
+        </div>
+    <% } %>
+
+
+    <a href="/create" class="btn btn-primary">Add New</a>
+    <h4>Branch: IT</h4>
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Branch</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% it.forEach((item, index) => { %>
+                <tr>
+                <th scope="col"><%= item.code %></th>
+                <th scope="col"><a href="/details/<%= item._id %>"><%= item.name %></a></th>
+                <th scope="col"><%= item.age %></th>
+                <th scope="col">$ <%= item.salary %></th>
+                <th scope="col"><%= item.branch %></th>
+                <th scope="col"><a href="/update/<%= item._id %>" class="btn btn-primary">Update</a></th>
+                <th scope="col"><a href="/delete/<%= item._id %>" class="btn btn-danger" onclick="return confirm(`Are U sure?`)">Delete</a></th>
+              </tr>
+                <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h4>Branch: Quet rac</h4>
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Branch</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% quetrac.forEach((item, index) => { %>
+                <tr>
+                <th scope="col"><%= item.code %></th>
+                <th scope="col"><a href="/details/<%= item._id %>"><%= item.name %></a></th>
+                <th scope="col"><%= item.age %></th>
+                <th scope="col">$ <%= item.salary %></th>
+                <th scope="col"><%= item.branch %></th>
+                <th scope="col"><a href="/update/<%= item._id %>" class="btn btn-primary">Update</a></th>
+                <th scope="col"><a href="/delete/<%= item._id %>" class="btn btn-danger" onclick="return confirm(`Are U sure?`)">Delete</a></th>
+              </tr>
+                <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
